@@ -26,3 +26,10 @@ target_link_libraries(draw_trajectory
             ${Pangolin_LIBRARIES}
             ${Sophus_LIBRARIES}
          )
+
+add_executable(draw_gt_est draw_gt_est.cpp)
+target_link_libraries(draw_gt_est
+            ${EIGEN3_LIBS}
+            ${Pangolin_LIBRARIES}
+            ${Sophus_LIBRARIES}
+         )
