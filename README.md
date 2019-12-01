@@ -34,7 +34,7 @@ make
 ./build/draw_trajectory
 ```
 
-![](/home/kieranych/vslam/hw3/code/trajectory.png)
+![](./trajectory.png)
 
 
 
