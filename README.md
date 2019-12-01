@@ -36,5 +36,11 @@ make
 
 ![](./trajectory.png)
 
+### 2. compare gt and estimated
 
+```
+./build/draw_gt_est
+```
+
+![](./gt_est.png)
 
