@@ -43,7 +43,18 @@ int main(int argc, char **argv) {
         Eigen::Quaterniond q(q_w, q_x, q_y, q_z);
         est_poses.emplace_back(Sophus::SE3(q,t_tra));
     }
+    // caculate RMSE
+    int num = 0;
+    double error = 0, RMSE = 0;
+    Eigen::Matrix<double,6,1> tmp;
 
+    for (auto i = 0; i < gt_poses.size() - 1; i++){
+        tmp = (gt_poses[i].inverse()*est_poses[i]).log();
+        error += tmp.transpose()*tmp;
+        num++;
+    }
+    RMSE = sqrt(error/num);
+    cout<<"RMSE: "<<RMSE<<endl;
     // draw trajectory in pangolin
     DrawTrajectory(gt_poses, est_poses);
     return 0;
